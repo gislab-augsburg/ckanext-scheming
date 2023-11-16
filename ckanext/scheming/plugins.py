@@ -279,7 +279,7 @@ class SchemingDatasetsPlugin(p.SingletonPlugin, DefaultDatasetForm,
                 del data[(f,)]
 
         if action_type == 'show':
-            if composite_convert_fields:
+            if composite_convert_fields and 'extras' in data_dict:
                 for ex in data_dict['extras']:
                     if ex['key'] in composite_convert_fields:
                         data_dict[ex['key']] = json.loads(ex['value'])
